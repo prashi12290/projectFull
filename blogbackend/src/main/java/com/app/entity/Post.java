@@ -7,8 +7,11 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.app.dto.PostDto;
 import com.app.dto.UserDto;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -89,7 +92,8 @@ public class Post {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-   // @Temporal(TemporalType.)
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(pattern = "dd-MM-yyyy hh:mm a z")
 	public Date getCreatedAtPost() {
 		return createdAtPost;
 	}
@@ -115,7 +119,7 @@ public class Post {
 	}
 
 	@ManyToOne
-	@JsonIgnore
+	//@JsonIgnore
 	@JoinColumn(name = "user_id")
 	public User getUser() {
 		return user;
