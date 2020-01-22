@@ -1,0 +1,60 @@
+
+    <div class="topnav" *ngIf="CheckUserNotLogin()" >
+            <a routerLink="/home">Home</a>
+            <a routerLink="/about">About Us</a>
+            <a routerLink="/contact">Contact Us</a>
+            <div class="topnav-right">        
+              <a routerLink="/login">Login</a>
+              <a routerLink="/signup">Sign Up</a>    
+            </div>
+        </div>
+        
+        <div class="topnav" *ngIf="CheckAdmin()" >
+            <a routerLink="/home">Home</a>
+            <a routerLink="/about">About Us</a>
+            <a routerLink="/contact">Contact Us</a>
+            <a routerLink="/create">Create new blog</a>
+            <a routerLink="/remove">Remove user</a>
+            <a routerLink="/myblogs">My Blogs</a>
+            <a routerLink="/blog">Blog</a>
+            <div class="topnav-right">        
+                 
+              <li>
+                
+                  <button (click)="Logout()" type="button" class="btn btn-lg btn-success">Log Out</button>
+                  
+              </li>
+              
+      
+       
+            </div>
+            <div class="topnav-right"> 
+                    <a routerLink="/profile">My Profile</a>      
+            </div>
+ 
+        </div>
+    
+        <div class="topnav" *ngIf="CheckUser()" >
+            <a routerLink="/home">Home</a>
+            <a routerLink="/about">About Us</a>
+            <a routerLink="/contact">Contact Us</a>
+            <a routerLink="/create">create new blog</a>
+            <a routerLink="/myblogs">My Blogs</a>
+            <a routerLink="/blog">Blog</a>
+            <div class="topnav-right">        
+                <li>
+                
+                    <button (click)="Logout()" type="button" class="btn btn-lg btn-success">Log Out</button>
+                    
+                </li>
+        
+              
+              
+            </div>
+            <div class="topnav-right"> 
+                    <a routerLink="/profile">My Profile</a>      
+            </div>
+        </div>
+        
+
+<router-outlet></router-outlet>

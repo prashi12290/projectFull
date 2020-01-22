@@ -1,0 +1,46 @@
+
+<br>
+<br>
+
+<br>
+<br>
+<form (ngSubmit)="SignIn()">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <legend>Login Here</legend>
+
+    <div class="form-group">
+        <label for="uname">uname</label>
+        <input type="text" class="form-control" name="uname" id="uname" placeholder="name" [(ngModel)]="userdetails.uname">
+    </div>
+
+    <div class="form-group">
+        <label for="password">password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="password" [(ngModel)]="userdetails.password">
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Log In</button>
+    
+    
+
+    
+    
+
+    &nbsp; &nbsp; 
+    &nbsp; &nbsp; 
+    
+    <button class="btn btn-warning nav-item nav-link-edit" [routerLink]="['/signup']">SignUp</button >   
+    <br>
+    <span class="label label-danger">{{message}}</span>
+    </div>
+</form>
+
+<div class="col-md-4"></div> 
+
+
+
+    
+    
+    
+
+
