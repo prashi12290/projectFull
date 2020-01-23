@@ -23,9 +23,17 @@ export class DataService {
      return this.helper.post("http://localhost:7070/post/create/"+userId,formData);
    }
 
-  InsertUser(userObj){
+  InsertUser(userObj,image){
     console.log("user"+JSON.stringify(userObj));
-    return this.helper.post("http://localhost:7070/signup",userObj);
+    const formData = new FormData();
+     formData.append('name',userObj.name);
+     formData.append("email",userObj.email);
+     formData.append("password",userObj.password);
+     formData.append("confirmPassword",userObj.confirmPassword);
+     formData.append("gender",userObj.gender);
+     formData.append("phone",userObj.phone);
+     formData.append("image",image);     
+    return this.helper.post("http://localhost:7070/signup",formData);
   }
 
   RemoveUser(userid){

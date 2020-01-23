@@ -1,57 +1,57 @@
 
 <form (ngSubmit)="InsertUser()">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-    <legend>SignUp Here</legend>
-
-    <div class="form-group">
-        <label for="name">name</label>
-        <input type="text" class="form-control" name="name" id="name" placeholder="name" [(ngModel)]="user.name">
-    </div>
-
-    <div class="form-group">
-        <label for="email">email</label>
-        <input type="text" class="form-control" name="email" id="email" placeholder="email" [(ngModel)]="user.email">
-    </div>
-    <div class="form-group">
-            <label for="password">password</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="password" [(ngModel)]="user.password">
-    </div>
-    <div class="form-group">
-        <label for="confirmPassword">ConfirmPassword</label>
-        <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="confirmPassword" [(ngModel)]="user.confirmPassword">
-</div>
-    <div class="form-group">
-        <label for="gender">Gender</label>
-        <br>
-        <input type="radio" name="gender" value="male" [(ngModel)]="user.gender" > Male <br>
-        <input type="radio" name="gender" value="female" [(ngModel)]="user.gender" > Female<br>
-        <input type="radio" name="gender"  value="other" [(ngModel)]="user.gender" > Other
-    </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+        <legend>SignUp Here</legend>
     
-    <div class="form-group">
-            <label for="phone">phone</label>
-            <input type="long" class="form-control" name="phone" id="phone" placeholder="phone" [(ngModel)]="user.phone">
-        </div>
-
         <div class="form-group">
-            <label for="">Profile Picture</label>
-            <input (change)="onSelectThumbnail($event)" type="file" class="form-control">
-          </div>
-   
-    <button type="submit" class="btn btn-primary">Sign Up</button>
+            <label for="name">name</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="name" [(ngModel)]="user.name">
+        </div>
     
-    <br>
-
-    
-    <span class="label label-danger">{{message}}</span>
-
-    <br>
-
+        <div class="form-group">
+            <label for="email">email</label>
+            <input type="text" class="form-control" name="email" id="email" placeholder="email" [(ngModel)]="user.email">
+        </div>
+        <div class="form-group">
+                <label for="password">password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="password" [(ngModel)]="user.password">
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">ConfirmPassword</label>
+            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="confirmPassword" [(ngModel)]="user.confirmPassword">
     </div>
-    <div class="col-md-4"></div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <br>
+            <input type="radio" name="gender" value="male" [(ngModel)]="user.gender" > Male <br>
+            <input type="radio" name="gender" value="female" [(ngModel)]="user.gender" > Female<br>
+            <input type="radio" name="gender"  value="other" [(ngModel)]="user.gender" > Other
+        </div>
+        
+        <div class="form-group">
+                <label for="phone">phone</label>
+                <input type="long" class="form-control" name="phone" id="phone" placeholder="phone" [(ngModel)]="user.phone">
+            </div>
+
+            <div class="form-group">
+                <label for="">Profile Picture</label>
+                <input (change)="onSelectThumbnail($event)" type="file" class="form-control">
+              </div>
+       
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+        
+        <br>
     
-</form>
+        
+        <span class="label label-danger">{{message}}</span>
+    
+        <br>
+    
+        </div>
+        <div class="col-md-4"></div>
+        
+    </form>
 
 
 
