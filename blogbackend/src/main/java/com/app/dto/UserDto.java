@@ -1,21 +1,21 @@
 package com.app.dto;
 
 public class UserDto {
-	private String name,email,password,confirm,gender;
-	private long contact;
+	private String name,email,password,confirmPassword,gender;
+	private long phone;
 	
 	public UserDto() {
 	
 	}
 
-	public UserDto(String name, String email, String password, String confirm, String gender, long contact) {
+	public UserDto(String name, String email, String password, String confirmPassword, String gender, long phone) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.password = password;
-		this.confirm = confirm;
+		this.confirmPassword = confirmPassword;
 		this.gender = gender;
-		this.contact = contact;
+		this.phone = phone;
 	}
 
 
@@ -43,12 +43,12 @@ public class UserDto {
 		this.password = password;
 	}
 
-	public String getConfirm() {
-		return confirm;
+	public String getConfirmPassword() {
+		return confirmPassword;
 	}
 
-	public void setConfirm(String confirm) {
-		this.confirm = confirm;
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 	public String getGender() {
@@ -59,11 +59,17 @@ public class UserDto {
 		this.gender = gender;
 	}
 
-	public long getContact() {
-		return contact;
+	public long getPhone() {
+		return phone;
 	}
 
-	public void setContact(long contact) {
-		this.contact = contact;
+	public void setPhone(long phone) {
+		this.phone = phone;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDto [name=" + name + ", email=" + email + ", password=" + password + ", confirmPassword="
+				+ confirmPassword + ", gender=" + gender + ", phone=" + phone + "]";
 	}
 }

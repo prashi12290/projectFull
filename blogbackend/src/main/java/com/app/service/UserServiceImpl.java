@@ -1,6 +1,6 @@
 package com.app.service;
 
-import java.util.Optional;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -28,9 +28,23 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public User GetUserById(Integer id) {
+	public List<User> findUserByName(String uname) {
 		// TODO Auto-generated method stub
-		System.out.println("here");
+		return dao.findByName(uname);
+	}
+
+	@Override
+	public User GetUserById(Integer id) {
 		return dao.getOne(id);
+	}
+
+	@Override
+	public boolean removeUser(Integer userid) {
+		try {
+			dao.removeUser(userid);
+		}catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
 }

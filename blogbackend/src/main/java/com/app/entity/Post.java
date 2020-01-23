@@ -9,7 +9,6 @@ import javax.persistence.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.app.dto.PostDto;
 import com.app.dto.UserDto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;

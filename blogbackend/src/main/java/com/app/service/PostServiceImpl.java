@@ -1,10 +1,8 @@
 package com.app.service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,11 +23,13 @@ public class PostServiceImpl implements IPostService {
 	}
 	@Override
 	public Post getPostById(Integer blogId) {
-	    
-		return dao.getUserAndPost(blogId);
+		return dao.getOne(blogId);
 		
 	}
-	
-	
+	@Override
+	public List<Post> getAllPost() {
+		// TODO Auto-generated method stub
+		return dao.findAll();
+	}
 
 }

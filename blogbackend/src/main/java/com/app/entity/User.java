@@ -7,6 +7,8 @@ import javax.persistence.*;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Type;
+
 import com.app.dto.UserDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,7 +21,7 @@ private UserRole role;
 private Date created_at;
 private byte[] image;
 private long contact;
-private boolean deleted;
+private String deleted;
 private List<Post> posts;
 private List<Comments> comments;
 
@@ -43,7 +45,10 @@ public User(UserDto details) {
 	this.email=details.getEmail();
 	this.password=details.getPassword();
 	this.gender=details.getGender();
-	this.contact=details.getContact();
+	this.contact=details.getPhone();
+	this.deleted="N";
+	this.created_at=java.util.Calendar.getInstance().getTime();
+	this.role=UserRole.USER;
 }
 
 public User(Integer userId) {
@@ -133,16 +138,14 @@ public long getContact() {
 public void setContact(long contact) {
 	this.contact = contact;
 }
-
-
-public boolean isDeleted() {
+@Column(length = 1)
+public String getDeleted() {
 	return deleted;
 }
 
-public void setDeleted(boolean deleted) {
+public void setDeleted(String deleted) {
 	this.deleted = deleted;
 }
-
 
 @JsonIgnore
 @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)

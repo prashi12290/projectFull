@@ -1,6 +1,7 @@
 package com.app.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.app.dto.PostDto;
 import com.app.entity.Category;
 import com.app.entity.Post;
 import com.app.entity.User;
@@ -73,5 +73,13 @@ public class PostController {
 		if(p==null)
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	return new ResponseEntity<Post>(p, HttpStatus.OK);
+	}
+	
+	@GetMapping("/post")
+	public ResponseEntity<?> getAllPosts(){
+		List<Post> p = this.service.getAllPost();
+		if(p==null)
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	return new ResponseEntity<List<Post>>(p, HttpStatus.OK);
 	}
 }

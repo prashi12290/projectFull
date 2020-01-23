@@ -1,5 +1,6 @@
 package com.app.controller;
 
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 
@@ -7,14 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.dto.PostDto;
 import com.app.dto.UserDto;
-import com.app.entity.Post;
 import com.app.entity.User;
 import com.app.service.IUserService;
 
@@ -40,7 +42,7 @@ public class UserController {
 	
 	@PostMapping("/signup")
 	public ResponseEntity<?> SignUpUser(@RequestBody UserDto details){
-		if(details.getPassword().equals(details.getConfirm())) { 
+		if(details.getPassword().equals(details.getConfirmPassword())) { 
 		User newUser = new User(details);
 		service.createUser(newUser);
 		}
@@ -48,6 +50,24 @@ public class UserController {
 				return new ResponseEntity<Void>(HttpStatus.NOT_MODIFIED);
 		}
 		return new ResponseEntity<User>(HttpStatus.OK);
+	}
+	
+	@GetMapping("/user/name/{uname}")
+	public ResponseEntity<?> findUserByName(@PathVariable String uname) {
+		
+		List<User> userlist = service.findUserByName(uname);
+		 if(userlist==null)
+				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<List<User>>(userlist, HttpStatus.OK);
+	}
+
+	@DeleteMapping("/user/{userid}")
+	public ResponseEntity<?> deleteUser(@PathVariable Integer userid) {
+		
+		boolean removed = this.service.removeUser(userid);
+		if(!removed)
+				return new ResponseEntity<String>("User not found",HttpStatus.NOT_FOUND);
+		return new ResponseEntity<String>("User Removed Succesfully", HttpStatus.OK);
 	}
 	
 }
