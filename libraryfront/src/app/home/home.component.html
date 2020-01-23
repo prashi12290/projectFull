@@ -22,19 +22,31 @@
   <article>
     <h1>Blogs</h1>
     
-<div *ngFor="let blog of blogs">
-<div class="row">
-        <div class="column" style="background-color:#aaa;">
-            
+
+ <div class="row">
+    &nbsp;
+    &nbsp;
+    <div *ngFor="let blog of blogs"> 
+        
+        <div class="column" >
+            <div class="card1">
                 <img src="data:image/gif;base64,{{blog.image}}" alt="image" style="width:400px;height: 200px;" >
+                <div class="container">
+                  <h4><b><a routerLink="/blog/{{blog.pId}}">{{blog.blogTitle}}</a></b></h4>
+                  <p><label for="Description">{{blog.description}}</label></p>
+                </div>
+              </div>
+                
          &nbsp;
          
-          <h2><a routerLink="/blog/{{blog.pId}}">{{blog.blogTitle}}</a> </h2>
+          <!-- <h2><a routerLink="/blog/{{blog.pId}}">{{blog.blogTitle}}</a> </h2>
           <p><label for="Description">{{blog.description}}</label></p>
-          <p>Some text..</p>
+          <p>Some text..</p> -->
           
         </div>
-        <div class="column" style="background-color:#bbb;">
+        
+        
+        <!-- <div class="column" style="background-color:#bbb;">
           
                 <img src="https://iiwhosting.com/blog/wp-content/uploads/2015/11/blogging.jpg" alt="image" style="width:400px;height: 200px;" >
          &nbsp;
@@ -43,9 +55,9 @@
           <p><label for="Description">Description</label></p>
           <p>Some text..</p>
           
-        </div>
-      </div>
+        </div> -->
     </div>
+  </div>
       <!-- <div class="row">
         <div class="column" style="background-color:#ccc;">
         

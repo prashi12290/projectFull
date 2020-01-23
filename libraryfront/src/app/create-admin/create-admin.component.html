@@ -1,8 +1,9 @@
 
+
 <form (ngSubmit)="searchUser()">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-    <legend>Remove User</legend>
+    <legend>User</legend>
     <div class="form-group">
         <label for="uname">uname</label>
         <input type="text" class="form-control" name="uname" id="uname" placeholder="name" [(ngModel)]="uname">
@@ -22,12 +23,13 @@
                         <br>
                         <br>
                     </tr>
+
             <tr *ngFor="let user of userlist">
                 <td>{{user.userId}}</td>
                 <td>{{user.name}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.role}}</td>
-                <td><button type="button" (click)="removeUser(user.userId)" class="btn btn-danger">Delete User</button></td>
+                <td><button type="button" (click)="makeUserAdmin(user.userId)" class="btn btn-warning">Make Admin</button></td>
                    <!-- <td><button type="button"  class="btn btn-danger" [routerLink]="['/remove/{{user.userId}}']">Delete User</button></td> -->
                 <br>
                 <br>

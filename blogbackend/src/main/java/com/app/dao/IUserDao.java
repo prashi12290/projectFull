@@ -18,4 +18,7 @@ public interface IUserDao extends JpaRepository<User, Integer> {
 	@Modifying
 	@Query("update User u set u.deleted = 'Y' where u.userId = ?1")
 	int removeUser(Integer userId);
+	@Modifying
+	@Query("update User u set u.role = 'ADMIN' where u.userId = ?1")
+	int updateUser(Integer userid);
 }

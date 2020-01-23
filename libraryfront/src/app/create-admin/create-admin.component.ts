@@ -3,21 +3,17 @@ import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-remove',
-  templateUrl: './remove.component.html',
-  styleUrls: ['./remove.component.css']
+  selector: 'app-create-admin',
+  templateUrl: './create-admin.component.html',
+  styleUrls: ['./create-admin.component.css']
 })
-export class RemoveComponent implements OnInit {
+export class CreateAdminComponent implements OnInit {
 
-  constructor(private service:DataService,private router:Router) {
-    
-   }
-  
+  constructor(private service:DataService,private router:Router) { }
+
   uname:string;
   userlist:any;
-
   ngOnInit() {
-    
   }
 
   searchUser(){
@@ -26,14 +22,15 @@ export class RemoveComponent implements OnInit {
     });
   }
 
-  removeUser(userid){
-    const result = confirm('Are you sure you want to remove user?');
+  makeUserAdmin(userid){
+    const result = confirm('Are you sure you want to user admin?');
       if (result) {
         console.log("uid"+userid)
-        this.service.RemoveUser(userid).subscribe((res)=>{
+        this.service.makeAdmin(userid).subscribe((res)=>{
           console.log(res);
           this.router.navigate(["home"])
         })
       }
   }
+
 }

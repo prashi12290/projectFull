@@ -47,4 +47,14 @@ public class UserServiceImpl implements IUserService {
 		}
 		return true;
 	}
+
+	@Override
+	public boolean makeAdmin(Integer userid) {
+		try {
+			dao.updateUser(userid);
+		}catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
 }

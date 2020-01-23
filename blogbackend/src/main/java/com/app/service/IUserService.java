@@ -11,4 +11,5 @@ public interface IUserService {
 	public User createUser(User newUser);
 	public List<User> findUserByName(String uname);
 	public boolean removeUser(Integer userid);
+	public boolean makeAdmin(Integer userid);
 }

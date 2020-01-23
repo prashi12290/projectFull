@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
+ 
   
   constructor(private helper:HttpClient) { }
 
@@ -42,5 +43,11 @@ export class DataService {
 
   SearchUser(uname){
     return this.helper.get("http://localhost:7070/user/name/"+uname);
+  }
+
+  makeAdmin(userid) {
+    console.log("here"+userid)
+    return this.helper.get("http://localhost:7070/user/"+userid);
+                            
   }
 }
