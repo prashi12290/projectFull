@@ -15,7 +15,7 @@ export class RemoveComponent implements OnInit {
   
   uname:string;
   userlist:any;
-
+  message;
   ngOnInit() {
     
   }
@@ -30,9 +30,13 @@ export class RemoveComponent implements OnInit {
     const result = confirm('Are you sure you want to remove user?');
       if (result) {
         console.log("uid"+userid)
-        this.service.RemoveUser(userid).subscribe((res)=>{
-          console.log(res);
-          this.router.navigate(["home"])
+        let observable=this.service.RemoveUser(userid);
+        observable.subscribe((result)=>{
+          //console.log(result);
+          this.message="user removed"
+        },(error)=>{
+          console.log(error)
+          this.message="user not removed";
         })
       }
   }

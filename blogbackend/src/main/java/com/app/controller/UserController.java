@@ -42,9 +42,16 @@ public class UserController {
 	}
 	
 	@PostMapping("/signup")
-	public ResponseEntity<?> SignUpUser(@RequestBody UserDto details){
+	public ResponseEntity<?> SignUpUser(@RequestParam String name,@RequestParam String email,@RequestParam String password,@RequestParam String confirmPassword,@RequestParam String gender,@RequestParam long phone,@RequestParam MultipartFile image){
+		UserDto details = new UserDto(name, email, password, confirmPassword, gender, phone);
 		if(details.getPassword().equals(details.getConfirmPassword())) { 
 		User newUser = new User(details);
+		try {
+			newUser.setImage(image.getBytes());
+		} catch (IOException e) {
+			newUser.setImage(null);
+			e.printStackTrace();
+		}
 		service.createUser(newUser);
 		}
 		else {
@@ -70,6 +77,7 @@ public class UserController {
 				return new ResponseEntity<String>("User not found",HttpStatus.NOT_FOUND);
 		return new ResponseEntity<>( HttpStatus.OK);
 	}
+	
 	@GetMapping("/user/{userid}")
 	public ResponseEntity<?> makeUserAdmin(@PathVariable Integer userid) {
 		System.out.println("userid"+userid);

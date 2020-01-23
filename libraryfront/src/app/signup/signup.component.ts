@@ -23,11 +23,16 @@ export class SignupComponent implements OnInit {
 constructor(private route:ActivatedRoute,
 private router:Router,
 private service:DataService) { }
-
+image :any;
 
 ngOnInit() {
 }
 
+
+onSelectThumbnail(event) {
+  this.image = event.target.files[0];
+  
+}
 
 InsertUser(){
 console.log(this.user);
@@ -38,7 +43,7 @@ console.log(this.user);
   this.message="password and confirmPassword do not match";
 }
 else {
-  let observableResult = this.service.InsertUser(this.user);
+  let observableResult = this.service.InsertUser(this.user,this.image);
   observableResult.subscribe((result)=>{
    console.log(result);
    this.router.navigate(['home']);

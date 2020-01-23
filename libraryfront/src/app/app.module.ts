@@ -55,7 +55,7 @@ import { CreateAdminComponent } from './create-admin/create-admin.component';
       {path:"signup",component:SignupComponent},
       {path:"create",component:CreateComponent,canActivate:[AuthService]},
       {path:"remove",component:RemoveComponent},
-      {path:"myblogs",component:MyblogsComponent},
+      {path:"myblogs/:userId",component:MyblogsComponent},
       {path:"profile",component:ProfileComponent},
     
       {path:"blog/:pId",component:BlogpostComponent},
