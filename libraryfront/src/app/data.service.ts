@@ -26,6 +26,7 @@ export class DataService {
     console.log("user"+JSON.stringify(userObj));
     return this.helper.post("http://localhost:7070/signup",userObj);
   }
+
   RemoveUser(userid){
     return this.helper.delete("http://localhost:7070/user/"+userid);
   }
@@ -33,6 +34,11 @@ export class DataService {
   getPosts(id) {
     return this.helper.get("http://localhost:7070/post/"+id)
   }
+
+  getAllPosts() {
+    return this.helper.get("http://localhost:7070/post")
+  }
+
 
   SearchUser(uname){
     return this.helper.get("http://localhost:7070/user/name/"+uname);

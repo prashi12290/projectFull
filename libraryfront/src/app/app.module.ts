@@ -55,7 +55,7 @@ import { BlogpostComponent } from './blogpost/blogpost.component';
       {path:"remove",component:RemoveComponent},
       {path:"myblogs",component:MyblogsComponent},
       {path:"profile",component:ProfileComponent},
-      {path:"blog",component:BlogpostComponent}
+      {path:"blog/:pId",component:BlogpostComponent}
 
       //{path:"**",component:NotFoundComponent}
     ])

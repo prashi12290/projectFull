@@ -24,15 +24,20 @@ export class LoginComponent implements OnInit {
        this.user=result;
        console.log("user "+JSON.stringify(this.user));
      
-     if(this.user==undefined){
+     if(this.user==undefined||null){
             //this.router.navigate(['login']);
             this.message="user name/pass is invalid";
+            
       }
       else {
         sessionStorage.setItem("user",JSON.stringify(this.user));
         this.router.navigate(['home']);
 
       }
+    },(error)=>{
+      console.log(error)
+      this.message="user name/pass is invalid";
+      console.log("msg"+this.message)
     })
   }
   ngOnInit() {

@@ -22,8 +22,8 @@ export class BlogpostComponent implements OnInit {
 
 getData(){
   this.route.paramMap.subscribe((result)=>{ 
-    //let id = result.get("Id");
-    let id=5;
+    let id = result.get("pId");
+   // let id=3;
     console.log(id);
 
   this.service.getPosts(id).subscribe((res)=>{

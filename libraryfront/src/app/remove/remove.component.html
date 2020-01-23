@@ -13,11 +13,12 @@
     <div>
         <table class="table">
             <tr *ngFor="let user of userlist">
-                <td>{{user.id}}</td>
+                <td>{{user.userId}}</td>
                 <td>{{user.name}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.role}}</td>
-                <td><button type="button" (click)="removeUser(user.id)" class="btn btn-danger">Delete User</button></td>
+                <td><button type="button" (click)="removeUser(user.userId)" class="btn btn-danger">Delete User</button></td>
+                   <!-- <td><button type="button"  class="btn btn-danger" [routerLink]="['/remove/{{user.userId}}']">Delete User</button></td> -->
                 <br>
                 <br>
             </tr>

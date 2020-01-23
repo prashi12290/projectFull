@@ -11,7 +11,14 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service:AuthService,private router:Router) { }
+  blogs:any;
+
+  constructor(private service:AuthService,private dataServie : DataService,private router:Router) {
+    this.dataServie.getAllPosts().subscribe((res)=>{
+      this.blogs=res;
+    });
+
+   }
   user={ 
   userId:null,
   name:"",
