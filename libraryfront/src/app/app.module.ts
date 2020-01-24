@@ -19,6 +19,7 @@ import { MyblogsComponent } from './myblogs/myblogs.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BlogpostComponent } from './blogpost/blogpost.component';
 import { CreateAdminComponent } from './create-admin/create-admin.component';
+import { CreateCategoryComponent } from './create-category/create-category.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CreateAdminComponent } from './create-admin/create-admin.component';
     MyblogsComponent,
     ProfileComponent,
     BlogpostComponent,
-    CreateAdminComponent
+    CreateAdminComponent,
+    CreateCategoryComponent
     
   ],
   imports: [
@@ -59,7 +61,8 @@ import { CreateAdminComponent } from './create-admin/create-admin.component';
       {path:"profile",component:ProfileComponent},
       {path:"blog/:pId",component:BlogpostComponent},
       {path:"createAdmin",component: CreateAdminComponent},
-      {path:"categories",component: CategoriesComponent}
+      {path:"categories/:ctId",component: CategoriesComponent},
+      {path:"createCategory",component: CreateCategoryComponent}
       
 
       //{path:"**",component:NotFoundComponent}

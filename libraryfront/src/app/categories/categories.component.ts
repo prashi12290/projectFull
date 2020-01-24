@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -8,31 +8,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-  category={
-    name:"",
-    description:""
-  };
+  
+  categories:any;
+  postlist;
   user:any;
- constructor(private service:DataService,private router:Router)
-  { }
-  message;
-  SignIn(){
-   console.log(this.category);
-    //let isvalid = this.service.Login(this.userdetails);
-     this.service.insertCategory(this.category).subscribe((result)=>{
-       //this.user=result;
-       console.log("user "+JSON.stringify(result));
-     
-     
-      },(error)=>{
-        console.log(error)
-        this.message="unable to add new category";
-        console.log("msg"+this.message)
-      })
-      
-    }
+ constructor(private service:DataService,private router:Router,private route:ActivatedRoute)
+  {
+    this.getData();
+  }
+  
   
   ngOnInit() {
   }
-  
+
+  getData(){
+    this.route.paramMap.subscribe((result)=>{ 
+      let id = result.get("ctId");
+      console.log(id);
+    this.service.getCategoryPosts(id).subscribe((res)=>{
+      this.postlist=res; 
+      console.log(this.postlist);
+      this.categories=this.postlist[0].category;
+      this.user=this.postlist[0].user;
+      console.log(this.categories)
+    },(error)=>{
+      console.log(error)
+    })
+  })
+  }
+ 
 }

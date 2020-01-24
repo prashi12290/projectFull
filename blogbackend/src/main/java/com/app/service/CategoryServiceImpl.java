@@ -31,4 +31,10 @@ public class CategoryServiceImpl implements ICategoryService {
 		
 		return dao.findAll();
 	}
+
+	@Override
+	public Category getCategoryById(Integer id) {
+		// TODO Auto-generated method stub
+		return dao.getOne(id);
+	}
 }

@@ -14,4 +14,8 @@ public interface ICategoryService {
 
 
 	List<Category> getAllCategories();
+
+
+
+	Category getCategoryById(Integer id);
 }

@@ -70,6 +70,8 @@ public class PostController {
 	@GetMapping("/post/{blogId}")
 	public ResponseEntity<?> getPostById(@PathVariable Integer blogId){
 		Post p = this.service.getPostById(blogId);
+		p.setViews(p.getViews()+1);
+		p=service.insertPost(p);
 		if(p==null)
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	return new ResponseEntity<Post>(p, HttpStatus.OK);
@@ -93,5 +95,13 @@ public class PostController {
 	return new ResponseEntity<List<Post>>(p, HttpStatus.OK);
 	}
 	
-	
+	@GetMapping("post/category/{id}")
+	public ResponseEntity<?> getPostByCategory(@PathVariable Integer id){
+		
+		Category c =catService.getCategoryById(id);
+		List<Post> p = this.service.getPostByCategory(c);
+		if(p==null)
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	return new ResponseEntity<List<Post>>(p, HttpStatus.OK);
+	}
 }

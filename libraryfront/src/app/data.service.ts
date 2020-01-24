@@ -6,10 +6,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
   
-  
- 
- 
-  
   constructor(private helper:HttpClient) { }
 
   InsertBlog(postObj,image,userId){
@@ -78,4 +74,9 @@ export class DataService {
   getAllCategories() {
     return this.helper.get("http://localhost:7070/categories")
   }
+
+  getCategoryPosts(id) {
+    return this.helper.get("http://localhost:7070/post/category/"+id)
+  }
+  
 }

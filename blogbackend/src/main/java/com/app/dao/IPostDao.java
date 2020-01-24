@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import com.app.entity.Category;
 import com.app.entity.Post;
 import com.app.entity.User;
 
@@ -13,4 +14,6 @@ public interface IPostDao extends JpaRepository<Post, Integer>{
 	Post getUserAndPost(Integer blogId);
 	
 	List<Post> findByUser(User u);
+	
+	List<Post> findByCategory(Category c);
 }

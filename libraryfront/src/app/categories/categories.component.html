@@ -1,30 +1,22 @@
-<br>
-<br>
 
-<br>
-<br>
-<form (ngSubmit)="SignIn()">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-        <legend>Add New Category</legend>
-
-        <div class="form-group">
-            <label for="name">Category Name</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="name"
-                [(ngModel)]="category.name">
-        </div>
-
-        <div class="form-group">
-            <label for="description">Description</label>
-            <input type="text" class="form-control" name="description" id="description" placeholder="description"
-                [(ngModel)]="category.description">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Add Category</button>
-
-        <br>
-        <span class="label label-danger">{{message}}</span>
+<div class="jumbotron">
+        <div class="container" style="text-align: center">
+        <h1>{{categories.name}}</h1>
+        <p>{{categories.description}}</p>
     </div>
-</form>
+</div>
 
-<div class="col-md-4"></div>
+<div class="row" style="margin-left: 30px">
+    &nbsp;
+    <div *ngFor="let blog of postlist">
+      <div class="column">
+        <div class="card1">
+          <img src="data:image/gif;base64,{{blog.image}}" alt="image" style="width:400px;height: 200px;">
+          <div class="container">
+            <h4><b><a routerLink="/blog/{{blog.pId}}">{{blog.blogTitle}}</a></b></h4>
+            <p><label for="Description">{{blog.description}}</label></p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

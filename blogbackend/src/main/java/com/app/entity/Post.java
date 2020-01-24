@@ -129,7 +129,7 @@ public class Post {
 	}
 
 	@ManyToOne
-	@JsonIgnore
+	//@JsonIgnore
 	@JoinColumn(name = "category_id")
 	public Category getCategory() {
 		return category;

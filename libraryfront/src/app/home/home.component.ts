@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
     this.dataServie.getAllPosts().subscribe((res)=>{
       this.blogs=res;
     });
-
+    this.getCategories();
    }
   user={ 
   userId:null,
@@ -32,6 +32,8 @@ export class HomeComponent implements OnInit {
   deleted:"",
   posts:[],
   comments:[]}
+
+  categories:any;
   
   ngOnInit() {
     
@@ -63,5 +65,14 @@ export class HomeComponent implements OnInit {
   Logout(){
     this.service.Logout();
     this.router.navigate(['Home']);
+  }
+
+  getCategories(){
+    this.dataServie.getAllCategories().subscribe((res)=>{
+  
+     this.categories=res;
+     console.log(this.categories);
+  
+    })
   }
 }

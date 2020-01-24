@@ -35,6 +35,7 @@
               <div class="container">
                 <h4><b><a routerLink="/blog/{{blog.pId}}">{{blog.blogTitle}}</a></b></h4>
                 <p><label for="Description">{{blog.description}}</label></p>
+                <p>Views : <label for="Views">{{blog.views}}</label></p>
               </div>
             </div>
 
@@ -83,13 +84,20 @@
     </article>
     <div class="rightcolumn">
       <div class="card">
-        <h3>Popular Post</h3>
-        <div class="fakeimg">Image</div><br>
-        <div class="fakeimg">Image</div><br>
-        <div class="fakeimg">Image</div>
+        <h3>Categories</h3>
+        <div *ngFor="let data of categories">
+          <div class ="fakeimg"  >
+            <a routerLink="/categories/{{data.ctId}}">{{data.name}}</a>
+          </div><br>
+        </div>
       </div>
     </div>
   </section>
+
+
+  
+   
+  
 
 
 </body>

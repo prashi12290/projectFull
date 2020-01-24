@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.IPostDao;
+import com.app.entity.Category;
 import com.app.entity.Post;
 import com.app.entity.User;
 
@@ -36,6 +37,11 @@ public class PostServiceImpl implements IPostService {
 	public List<Post> getPostUserById(User u) {
 		// TODO Auto-generated method stub
 		return dao.findByUser(u);
+	}
+	@Override
+	public List<Post> getPostByCategory(Category c) {
+		// TODO Auto-generated method stub
+		return dao.findByCategory(c);
 	}
 	
 
