@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit {
 
   Logout(){
     this.service.Logout();
-    this.router.navigate(['Home']);
+    this.router.navigate(['home']);
   }
 
   getCategories(){

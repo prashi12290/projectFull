@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  
   constructor(private helper:HttpClient) { }
 
   InsertBlog(postObj,image,userId){
@@ -44,9 +43,12 @@ export class DataService {
   }
 
   getAllPosts() {
-    return this.helper.get("http://localhost:7070/post")
+    return this.helper.get("http://localhost:7070/post/published")
   }
 
+  getUnpublishedPosts() {
+    return this.helper.get("http://localhost:7070/post/unpublished")
+  }
 
   SearchUser(uname){
     return this.helper.get("http://localhost:7070/user/name/"+uname);
@@ -56,6 +58,16 @@ export class DataService {
     console.log("here"+userid)
     return this.helper.get("http://localhost:7070/user/"+userid);
                             
+  }
+
+  publishPost(pId) {
+    console.log("here"+pId)
+    return this.helper.put("http://localhost:7070/post/publish/",pId);
+  }
+
+  removePost(pId) {
+    console.log("here"+pId)
+    return this.helper.delete("http://localhost:7070/post/remove/"+pId);
   }
 
   getMyPosts(userId) {
@@ -78,5 +90,4 @@ export class DataService {
   getCategoryPosts(id) {
     return this.helper.get("http://localhost:7070/post/category/"+id)
   }
-  
 }

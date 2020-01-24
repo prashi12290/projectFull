@@ -12,12 +12,16 @@ public interface IPostService {
 	
 	public Post getPostById(Integer blogId);
 
-	public List<Post> getAllPost();
+	public List<Post> getPublishedPosts();
 
+	public Post publishPost(Post p);
+
+	public Boolean removePost(int pId);
+
+	public List<Post> getUnpublishedPost();
+	
 	public List<Post> getPostUserById(User u);
 
 	public List<Post> getPostByCategory(Category c);
-
-
 
 }

@@ -1,0 +1,21 @@
+<div class="table-responsive">
+    <table class="table">
+      <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col"></th>
+          
+      </tr>
+      <tr *ngFor="let post of postlist">
+        <td>{{post.pId}}</td>
+        <td><a routerLink="/blog/{{post.pId}}">{{post.blogTitle}}</a></td>
+        <td>{{post.user.name}}</td>
+        <td><button type="button" (click)="publishPost(post.pId)" class="btn btn-success">Publish</button></td>
+        <td><button type="button" (click)="removePost(post.pId)" class="btn btn-danger">Remove</button></td>
+      </tr>      
+    </table>
+    <br>
+        <span class="label label-info">{{message}}</span>
+    <br>
+  </div>

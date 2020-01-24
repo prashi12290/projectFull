@@ -33,10 +33,10 @@ export class RemoveComponent implements OnInit {
         let observable=this.service.RemoveUser(userid);
         observable.subscribe((result)=>{
           //console.log(result);
-          this.message="user removed"
+          this.message="selected user removed"
         },(error)=>{
           console.log(error)
-          this.message="user not removed";
+          this.message="selected user not removed";
         })
       }
   }

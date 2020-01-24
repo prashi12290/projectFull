@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
-import com.app.entity.Post;
 import com.app.entity.User;
 
 public interface IUserDao extends JpaRepository<User, Integer> {
@@ -18,6 +17,7 @@ public interface IUserDao extends JpaRepository<User, Integer> {
 	@Modifying
 	@Query("update User u set u.deleted = 'Y' where u.userId = ?1")
 	int removeUser(Integer userId);
+	
 	@Modifying
 	@Query("update User u set u.role = 'ADMIN' where u.userId = ?1")
 	int updateUser(Integer userid);

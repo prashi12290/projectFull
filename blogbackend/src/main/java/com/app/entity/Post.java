@@ -1,15 +1,10 @@
 package com.app.entity;
 
-import java.io.File;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.app.dto.UserDto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -21,19 +16,18 @@ public class Post {
 	private String blogTitle;
 	private String body,description;
 	private Date createdAtPost;
-	private boolean published;
+	private String published;
 	private byte[] image;
 	private User user;
 	private Category category;
 	private long views;
 	private List<Comments> comments;
-
 	
 	public Post() {
 		System.out.println("inside ctor of "+getClass().getName());
 	}
 
-	public Post(String blogTitle, String body, String description, Date createdAtPost, boolean published,long views) {
+	public Post(String blogTitle, String body, String description, Date createdAtPost, String published,long views) {
 		super();
 		this.blogTitle = blogTitle;
 		this.body = body;
@@ -50,10 +44,8 @@ public class Post {
 		this.body=body;
 		//this.category=details.getCategory();
 		this.createdAtPost=java.util.Calendar.getInstance().getTime();
-	    this.published=false;
+	    this.published="N";
 	    this.views=0;
-	    
-
 	}
 	
 	
@@ -67,6 +59,7 @@ public class Post {
 	public void setpId(Integer pId) {
 		this.pId = pId;
 	}
+	
     @Column(length = 100)
 	public String getBlogTitle() {
 		return blogTitle;
@@ -75,6 +68,7 @@ public class Post {
 	public void setBlogTitle(String blogTitle) {
 		this.blogTitle = blogTitle;
 	}
+	
     @Column(length = 500)
 	public String getBody() {
 		return body;
@@ -91,6 +85,7 @@ public class Post {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
     @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "dd-MM-yyyy hh:mm a z")
 	public Date getCreatedAtPost() {
@@ -100,12 +95,13 @@ public class Post {
 	public void setCreatedAtPost(Date createdAtPost) {
 		this.createdAtPost = createdAtPost;
 	}
-
-	public boolean isPublished() {
+	
+	@Column(length = 1)
+	public String getPublished() {
 		return published;
 	}
 
-	public void setPublished(boolean published) {
+	public void setPublished(String published) {
 		this.published = published;
 	}
     @Lob
@@ -129,7 +125,7 @@ public class Post {
 	}
 
 	@ManyToOne
-	//@JsonIgnore
+	@JsonIgnore
 	@JoinColumn(name = "category_id")
 	public Category getCategory() {
 		return category;
@@ -164,7 +160,4 @@ public class Post {
 				+ ", createdAtPost=" + createdAtPost + ", published=" + published + ", user=" + user + ", category="
 				+ category + ", views=" + views + "]";
 	}
-	
-	
-
 }

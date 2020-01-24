@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class CreateAdminComponent implements OnInit {
 
   constructor(private service:DataService,private router:Router) { }
-
+  message;
   uname:string;
   userlist:any;
   ngOnInit() {
@@ -28,9 +28,11 @@ export class CreateAdminComponent implements OnInit {
         console.log("uid"+userid)
         this.service.makeAdmin(userid).subscribe((res)=>{
           console.log(res);
-          this.router.navigate(["home"])
+          this.message="selected user role updated"
+        },(error)=>{
+          console.log(error)
+          this.message="selected user role not updated";
         })
       }
   }
-
 }

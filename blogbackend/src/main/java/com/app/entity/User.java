@@ -7,7 +7,6 @@ import javax.persistence.*;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
 
-import org.hibernate.annotations.Type;
 
 import com.app.dto.UserDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;

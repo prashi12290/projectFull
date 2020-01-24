@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -77,12 +79,39 @@ public class PostController {
 	return new ResponseEntity<Post>(p, HttpStatus.OK);
 	}
 	
-	@GetMapping("/post")
-	public ResponseEntity<?> getAllPosts(){
-		List<Post> p = this.service.getAllPost();
+	@GetMapping("/post/published")
+	public ResponseEntity<?> getPublishedPosts(){
+		List<Post> p = this.service.getPublishedPosts();
 		if(p==null)
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	return new ResponseEntity<List<Post>>(p, HttpStatus.OK);
+	}
+	
+	@GetMapping("/post/unpublished")
+	public ResponseEntity<?> getUnpublishedPosts(){
+		List<Post> p = this.service.getUnpublishedPost();
+		if(p==null)
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<List<Post>>(p, HttpStatus.OK);
+	}
+	
+	@PutMapping("/post/publish")
+	public ResponseEntity<?> publishPost(@RequestBody int pId){
+		Post p = this.service.getPostById(pId);
+		p.setPublished("Y");
+		p = this.service.publishPost(p);
+		if(p==null)
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	return new ResponseEntity<Post>(p, HttpStatus.OK);
+	}
+	
+	@DeleteMapping("post/remove/{pId}")
+	public ResponseEntity<?> removePost(@PathVariable int pId){
+		Boolean removed = this.service.removePost(pId);
+		if(!removed)
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<Void>(HttpStatus.OK);
+		
 	}
 	
 	@GetMapping("/post/mypost/{userId}")

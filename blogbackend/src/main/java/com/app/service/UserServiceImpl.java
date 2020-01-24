@@ -47,7 +47,7 @@ public class UserServiceImpl implements IUserService {
 		}
 		return true;
 	}
-
+	
 	@Override
 	public boolean makeAdmin(Integer userid) {
 		try {

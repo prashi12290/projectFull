@@ -19,7 +19,7 @@ public class CategoryServiceImpl implements ICategoryService {
 	public Category getCategoryByName(String name) {
 		return dao.findByName(name);
 	}
-
+	
 	@Override
 	public Category addCategory(Category category) {
 		

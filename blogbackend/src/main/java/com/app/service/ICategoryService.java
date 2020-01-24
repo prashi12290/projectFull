@@ -6,9 +6,6 @@ import com.app.entity.Category;
 
 public interface ICategoryService {
 	Category getCategoryByName(String name);
-
-	
-
 	Category addCategory(Category c);
 
 
@@ -18,4 +15,5 @@ public interface ICategoryService {
 
 
 	Category getCategoryById(Integer id);
+
 }

@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 @Entity
 @Table(name = "category")
@@ -53,7 +51,6 @@ public class Category {
 
 
 	@OneToMany(mappedBy = "category",cascade = CascadeType.ALL, orphanRemoval = true)
-	@JsonIgnore
 	public List<Post> getPost() {
 		return post;
 	}
@@ -71,7 +68,6 @@ public class Category {
 		post.remove(p);
 		p.setCategory(null);
 	}
-
 
 	@Override
 	public String toString() {
