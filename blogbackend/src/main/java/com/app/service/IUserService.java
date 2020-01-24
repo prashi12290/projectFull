@@ -2,6 +2,7 @@ package com.app.service;
 
 import java.util.List;
 
+import com.app.entity.Post;
 import com.app.entity.User;
 
 public interface IUserService {
@@ -12,4 +13,5 @@ public interface IUserService {
 	public List<User> findUserByName(String uname);
 	public boolean removeUser(Integer userid);
 	public boolean makeAdmin(Integer userid);
+	
 }

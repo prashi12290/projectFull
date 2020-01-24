@@ -58,7 +58,9 @@ import { CreateAdminComponent } from './create-admin/create-admin.component';
       {path:"myblogs/:userId",component:MyblogsComponent},
       {path:"profile",component:ProfileComponent},
       {path:"blog/:pId",component:BlogpostComponent},
-      {path:"createAdmin",component: CreateAdminComponent}
+      {path:"createAdmin",component: CreateAdminComponent},
+      {path:"categories",component: CategoriesComponent}
+      
 
       //{path:"**",component:NotFoundComponent}
     ])

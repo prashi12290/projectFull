@@ -83,5 +83,15 @@ public class PostController {
 	return new ResponseEntity<List<Post>>(p, HttpStatus.OK);
 	}
 	
+	@GetMapping("/post/mypost/{userId}")
+	public ResponseEntity<?> getPostByuserId(@PathVariable Integer userId){
+		
+		User u =serviceUser.GetUserById(userId);
+		List<Post> p = this.service.getPostUserById(u);
+		if(p==null)
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	return new ResponseEntity<List<Post>>(p, HttpStatus.OK);
+	}
+	
 	
 }

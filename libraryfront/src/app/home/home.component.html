@@ -1,52 +1,53 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>CSS Template</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-       
 
-<header>
-       
-        <div style="background-color:dimgray ;text-align: center "><img src="http://seo-focus.com/wp-content/uploads/2018/10/A-Blog-Isn%E2%80%99t-a-Blog-It%E2%80%99s-a-Business.jpg" alt="image" style="height: 200px;  text-align: center" width="70%"  >
-        </div>
-        
-</header>
 
-<section>
-  <article>
-    <h1>Blogs</h1>
-    
+  <header>
 
- <div class="row">
-    &nbsp;
-    &nbsp;
-    <div *ngFor="let blog of blogs"> 
-        
-        <div class="column" >
+    <div style="background-color:dimgray ;text-align: center "><img
+        src="http://seo-focus.com/wp-content/uploads/2018/10/A-Blog-Isn%E2%80%99t-a-Blog-It%E2%80%99s-a-Business.jpg"
+        alt="image" style="height: 200px;  text-align: center" width="70%">
+    </div>
+
+  </header>
+
+  <section>
+    <article>
+      <h1>Blogs</h1>
+
+
+      <div class="row">
+        &nbsp;
+        &nbsp;
+        <div *ngFor="let blog of blogs">
+
+          <div class="column">
             <div class="card1">
-                <img src="data:image/gif;base64,{{blog.image}}" alt="image" style="width:400px;height: 200px;" >
-                <div class="container">
-                  <h4><b><a routerLink="/blog/{{blog.pId}}">{{blog.blogTitle}}</a></b></h4>
-                  <p><label for="Description">{{blog.description}}</label></p>
-                </div>
+              <img src="data:image/gif;base64,{{blog.image}}" alt="image" style="width:400px;height: 200px;">
+              <div class="container">
+                <h4><b><a routerLink="/blog/{{blog.pId}}">{{blog.blogTitle}}</a></b></h4>
+                <p><label for="Description">{{blog.description}}</label></p>
               </div>
-                
-         &nbsp;
-         
-          <!-- <h2><a routerLink="/blog/{{blog.pId}}">{{blog.blogTitle}}</a> </h2>
+            </div>
+
+            &nbsp;
+
+            <!-- <h2><a routerLink="/blog/{{blog.pId}}">{{blog.blogTitle}}</a> </h2>
           <p><label for="Description">{{blog.description}}</label></p>
           <p>Some text..</p> -->
-          
-        </div>
-        
-        
-        <!-- <div class="column" style="background-color:#bbb;">
+
+          </div>
+
+
+          <!-- <div class="column" style="background-color:#bbb;">
           
                 <img src="https://iiwhosting.com/blog/wp-content/uploads/2015/11/blogging.jpg" alt="image" style="width:400px;height: 200px;" >
          &nbsp;
@@ -56,8 +57,8 @@
           <p>Some text..</p>
           
         </div> -->
-    </div>
-  </div>
+        </div>
+      </div>
       <!-- <div class="row">
         <div class="column" style="background-color:#ccc;">
         
@@ -79,19 +80,20 @@
           <p>Some text..</p>
           </div>
       </div> -->
-  </article>
-  <div class="rightcolumn">
-    <div class="card">
-      <h3>Popular Post</h3>
-      <div class="fakeimg">Image</div><br>
-      <div class="fakeimg">Image</div><br>
-      <div class="fakeimg">Image</div>
+    </article>
+    <div class="rightcolumn">
+      <div class="card">
+        <h3>Popular Post</h3>
+        <div class="fakeimg">Image</div><br>
+        <div class="fakeimg">Image</div><br>
+        <div class="fakeimg">Image</div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
 </body>
+
 </html>
 
 
@@ -124,7 +126,7 @@
 
 
 
-        <!--  <ul class="nav navbar-nav" *ngSwitchCase="ADMIN">
+<!--  <ul class="nav navbar-nav" *ngSwitchCase="ADMIN">
                 <li ><a routerLink="/home/subjectwise">Subjectwise Copies Report</a></li>
                 <li><a routerLink="/home/bookwise">Bookwise Copies Report</a></li>
                 <li><a routerLink="/home/feesorfine">Fees/Fine Report</a></li>   
@@ -159,7 +161,7 @@
 </nav> -->
 
 
- 
+
 
 
 
@@ -180,9 +182,6 @@
 
  -->
 
- 
+
 
 <!-- Buttons to choose list or grid view -->
-
-
-

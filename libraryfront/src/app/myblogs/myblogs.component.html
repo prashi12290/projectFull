@@ -1,4 +1,36 @@
+<!-- <img style="height:100px;width: 100%" src="data:image/gif;base64,{{post.image}}" alt="image"><br> -->
+
+
 <div class="col-md-2"></div>
+<div class="col-md-8">
+  <div *ngIf="posts">
+    <div *ngFor="let post of posts">
+      <div class="header">
+        <h2><a routerLink="/blog/{{post.pId}}">{{post.blogTitle}}</a></h2>
+      </div>
+
+      <div>
+        <h5>created by : {{post.user.name}}</h5>
+        <h5>{{post.createdAtPost}}</h5>
+      </div>
+
+      <div style="height:410px; width: 100%">
+        <img src="data:image/gif;base64,{{post.image}}" alt="image" style="text-align: center"
+          style="width: 100%;height: 400px;">
+      </div>
+      <!-- <div>   
+    <p>{{post.body}}</p>
+</div> -->
+
+    </div>
+    <div class="footer">
+      <h2>thats all folks!!</h2>
+    </div>
+  </div>
+  <div class="col-md-8">
+
+
+    <!-- <div class="col-md-2"></div>
 <div class="col-md-8">
 <div class="header">
         <h2>Blogger Name</h2>
@@ -42,4 +74,4 @@
         <h2>Footer</h2>
       </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8"> -->

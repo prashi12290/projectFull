@@ -5,6 +5,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
+  
+  
+ 
  
   
   constructor(private helper:HttpClient) { }
@@ -57,5 +60,22 @@ export class DataService {
     console.log("here"+userid)
     return this.helper.get("http://localhost:7070/user/"+userid);
                             
+  }
+
+  getMyPosts(userId) {
+    return this.helper.get("http://localhost:7070/post/mypost/"+userId);
+  }
+
+
+  insertCategory(category) {
+    const formData = new FormData();
+     formData.append("name",category.name);
+     formData.append("description",category.description);
+    return this.helper.post("http://localhost:7070/addCategory",formData);
+  }
+
+
+  getAllCategories() {
+    return this.helper.get("http://localhost:7070/categories")
   }
 }

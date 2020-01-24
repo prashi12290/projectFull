@@ -12,6 +12,16 @@
     
     <div>
         <table class="table">
+                <tr *ngFor="let user of userlist">
+                        <th>UserId</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th></th>
+                           <!-- <td><button type="button"  class="btn btn-danger" [routerLink]="['/remove/{{user.userId}}']">Delete User</button></td> -->
+                        <br>
+                        <br>
+                    </tr>
             <tr *ngFor="let user of userlist">
                 <td>{{user.userId}}</td>
                 <td>{{user.name}}</td>

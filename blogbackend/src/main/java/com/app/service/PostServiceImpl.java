@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.IPostDao;
 import com.app.entity.Post;
+import com.app.entity.User;
 
 @Service
 @Transactional
@@ -31,5 +32,11 @@ public class PostServiceImpl implements IPostService {
 		// TODO Auto-generated method stub
 		return dao.findAll();
 	}
+	@Override
+	public List<Post> getPostUserById(User u) {
+		// TODO Auto-generated method stub
+		return dao.findByUser(u);
+	}
+	
 
 }

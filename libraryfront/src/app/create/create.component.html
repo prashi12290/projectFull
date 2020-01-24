@@ -26,10 +26,9 @@
               <div class="form-group">
             <label for="category">category</label>
         <select name="category" id="category" [(ngModel)]="posts.category">
-            <option value="sports">sports</option>
-            <option value="fashion">fashion</option>
-            <option value="technical">technical</option>
-            <option value="polity">polity</option>
+            <option *ngFor="let data of categories" [value]="data.Value">
+                {{data.name}}
+              </option>
           </select>
     </div>
 
