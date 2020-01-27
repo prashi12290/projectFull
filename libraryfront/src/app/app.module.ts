@@ -20,7 +20,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { BlogpostComponent } from './blogpost/blogpost.component';
 import { CreateAdminComponent } from './create-admin/create-admin.component';
 import { PublishComponent } from './publish/publish.component';
-import { CreateCategoryComponent } from './create-category/create-category.component'
+import { CreateCategoryComponent } from './create-category/create-category.component';
+import { EditComponent } from './edit/edit.component';
+import { DeleteComponent } from './delete/delete.component'
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { CreateCategoryComponent } from './create-category/create-category.compo
     BlogpostComponent,
     CreateAdminComponent,
     PublishComponent,
-    CreateCategoryComponent
+    CreateCategoryComponent,
+    EditComponent,
+    DeleteComponent
     
   ],
   imports: [
@@ -65,7 +69,9 @@ import { CreateCategoryComponent } from './create-category/create-category.compo
       {path:"createAdmin",component: CreateAdminComponent},
       {path:"publish",component: PublishComponent},
       {path:"categories/:ctId",component: CategoriesComponent},
-      {path:"createCategory",component: CreateCategoryComponent}
+      {path:"createCategory",component: CreateCategoryComponent},
+      {path:"edit/:pId",component: EditComponent},
+      {path:"delete/:pId",component: DeleteComponent}
 
       //{path:"**",component:NotFoundComponent}
     ])

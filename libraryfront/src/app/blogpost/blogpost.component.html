@@ -19,6 +19,12 @@
 <div>   
     <p>{{post.body}}</p>
 </div>
+<!-- <button class="btn btn-warning nav-item nav-link-edit" [routerLink]="['/edit'],{ queryParams: { pId: 'post.pId' } }">Edit</button >    -->
+<div style="text-align: right">
+    <a routerLink="/edit/{{post.pId}}">Edit</a>&nbsp;&nbsp;&nbsp; 
+    <a routerLink="/delete/{{post.pId}}">Delete</a>  </div>
+  
+
 <div class="footer">
         <h2>thats all folks!!</h2>
     </div>

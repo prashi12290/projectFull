@@ -133,4 +133,35 @@ public class PostController {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	return new ResponseEntity<List<Post>>(p, HttpStatus.OK);
 	}
+	
+	@PutMapping("/post/edit")
+	public ResponseEntity<?> updatePost(@RequestParam MultipartFile image,
+			@RequestParam String blogTitle,
+			@RequestParam String description,
+			@RequestParam String body,
+			@RequestParam String category,@RequestParam Integer pId){
+		Post p = this.service.getPostById(pId);
+		p.setBlogTitle(blogTitle);
+		p.setDescription(description);
+		p.setBody(body);
+
+		Category c = catService.getCategoryByName(category);
+		c.addPost(p);
+		try {
+			p.setImage(image.getBytes());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		p.setPublished("N");
+		p=service.insertPost(p);
+	
+		if(p==null)
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+	return new ResponseEntity<Post>(p, HttpStatus.OK);
+	}
+	
+	
+	
+	
 }

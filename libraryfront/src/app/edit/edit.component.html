@@ -1,6 +1,6 @@
 <div class="col-md-4"></div>
 <div class="col-md-4">
-<form #myForm="ngForm" (ngSubmit)="InsertBlog(myForm)">
+<form #myForm="ngForm" (ngSubmit)="Update(myForm)">
         
         
     <legend>Create</legend>
@@ -22,7 +22,7 @@
     </div>
 
     
-   <div class="form-group">
+    <div class="form-group">
             <label for="category">category</label>
         <select name="category" id="category" [(ngModel)]="posts.category">
             <option *ngFor="let data of categories" [value]="data.name">

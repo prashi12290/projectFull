@@ -21,9 +21,13 @@ export class CreateComponent implements OnInit {
   userId:any;
   user:any
   returnResult:any
+  categories:any;
 constructor(private route:ActivatedRoute,
 private router:Router,
-private service:DataService) { }
+private service:DataService) {
+
+  this.getCategories();
+ }
 
 image:any;
 
@@ -53,4 +57,12 @@ observableResult.subscribe((result)=>{
 
 }
 
+getCategories(){
+  this.service.getAllCategories().subscribe((res)=>{
+
+   this.categories=res;
+   console.log(this.categories);
+
+  })
+}
 }
