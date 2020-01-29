@@ -145,7 +145,7 @@ public class Post {
 	
 
 	@OneToMany(mappedBy = "post",cascade = CascadeType.ALL, orphanRemoval = true)
-	@JsonIgnore
+	//@JsonIgnore
 	public List<Comments> getComments() {
 		return comments;
 	}

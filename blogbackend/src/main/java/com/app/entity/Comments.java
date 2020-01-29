@@ -28,6 +28,12 @@ public class Comments {
 		this.createdAt = createdAt;
 	}
     
+	public Comments(User u,Post p,String comment) {
+		this.user=u;
+		this.post=p;
+		this.comment=comment;
+		this.createdAt=java.util.Calendar.getInstance().getTime();
+	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,14 +47,14 @@ public class Comments {
 	}
 
 	@ManyToOne
-	@JsonIgnore
+	//@JsonIgnore
 	@JoinColumn(name = "user_id")
 	public User getUser() {
 		return user;
 	}
 
-	public void setUser(User userId) {
-		this.user = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@ManyToOne
@@ -58,8 +64,8 @@ public class Comments {
 		return post;
 	}
 
-	public void setPost(Post postId) {
-		this.post = postId;
+	public void setPost(Post post) {
+		this.post = post;
 	}
 
 	public String getComment() {
@@ -81,7 +87,7 @@ public class Comments {
 
 	@Override
 	public String toString() {
-		return "Comments [cmId=" + cmId + ", userId=" + user + ", postId=" + post + ", comment=" + comment
+		return "Comments [cmId=" + cmId + ", user=" + user + ", post=" + post + ", comment=" + comment
 				+ ", createdAt=" + createdAt + "]";
 	}
 	

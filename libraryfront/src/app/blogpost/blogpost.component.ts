@@ -8,8 +8,12 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./blogpost.component.css']
 })
 export class BlogpostComponent implements OnInit {
-  post:any;
+  
   user:any;
+  userComment="";
+  post;
+  id;
+    
 
   constructor(private service:DataService,private route:ActivatedRoute,
     private router:Router) {
@@ -21,17 +25,31 @@ export class BlogpostComponent implements OnInit {
   }
 
 getData(){
+  this.user = JSON.parse(sessionStorage.getItem("user"));
   this.route.paramMap.subscribe((result)=>{ 
-    let id = result.get("pId");
-   // let id=3;
-    console.log(id);
+    this.id = result.get("pId");
+    console.log(this.id);
 
-  this.service.getPosts(id).subscribe((res)=>{
+  this.service.getPosts(this.id).subscribe((res)=>{
     console.log(res);
     this.post=res;
+    console.log("pst"+this.post);
   },(error)=>{
     console.log(error)
   })
 })
 }
+
+InsertComment(){
+
+    console.log(this.userComment);
+   let observableResult = this.service.InsertComment(this.post.pId,this.user.userId,this.userComment);
+    observableResult.subscribe((result)=>{
+     console.log(result);
+  
+    this.router.navigate(['home']);
+ })
+ 
+ }
+
 }

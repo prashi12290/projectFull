@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
- 
+  
   constructor(private helper:HttpClient) { }
 
   InsertBlog(postObj,image,userId){
@@ -18,9 +18,16 @@ export class DataService {
      formData.append("category",postObj.category);
      formData.append("image",image);
      formData.append("userId",userId);
- 
      return this.helper.post("http://localhost:7070/post/create/"+userId,formData);
-   }
+  }
+
+  InsertComment(postid, userid, userComment: string) {
+    const formData = new FormData();
+    formData.append('postid',postid);
+    formData.append('userid',userid);
+    formData.append('cmnt',userComment);
+    return this.helper.post("http://localhost:7070/comment/create/",formData);
+  }
 
   InsertUser(userObj,image){
     console.log("user"+JSON.stringify(userObj));
@@ -92,7 +99,6 @@ export class DataService {
     return this.helper.get("http://localhost:7070/post/category/"+id)
   }
 
-
   updatePost(postObj,image,pId){
     console.log("user"+JSON.stringify(postObj));
     const formData = new FormData();
@@ -111,9 +117,5 @@ export class DataService {
     return this.helper.delete("http://localhost:7070/post/remove/"+pId);
 
   }
-  
 
-  /*updatePost(post) {
-    return this.helper.put("http://localhost:7070/post/category/"+post.pId,post);
-  }*/
 }

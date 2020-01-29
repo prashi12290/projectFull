@@ -160,8 +160,4 @@ public class PostController {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 	return new ResponseEntity<Post>(p, HttpStatus.OK);
 	}
-	
-	
-	
-	
 }

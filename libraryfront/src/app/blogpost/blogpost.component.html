@@ -1,32 +1,72 @@
-<!-- <img style="height:100px;width: 100%" src="data:image/gif;base64,{{post.image}}" alt="image"><br> -->
+
+<section id="content" class="body">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div *ngIf="post">
+            <div class="header">
+                <h2>{{post.blogTitle}}</h2>
+            </div>
+
+            <div>
+                <h5><b>created by : </b>{{post.user.name}}</h5>
+                <h5>{{post.createdAtPost}}</h5>
+            </div>
+
+            <div style="height:410px; width: 100%">
+                <img src="data:image/gif;base64,{{post.image}}" alt="image" style="text-align: center"
+                    style="width: 100%;height: 400px;">
+            </div>
+            <div>
+                <p>{{post.body}}</p>
+            </div>
+            <br>
+            <div style="text-align: right">
+                <a routerLink="/edit/{{post.pId}}">Edit</a>&nbsp;&nbsp;&nbsp; 
+                <a routerLink="/delete/{{post.pId}}">Delete</a>  
+            </div>  
+        </div>
+    </div>
+</section>
+
+<section id="comments" class="body">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <header>
+            
+            <h2>Comments</h2>
+        </header>
+
+        <form (ngSubmit)="InsertComment()" *ngIf="user">
+            <div class="form-group">
+                <label for="blogComment">Add comment</label>
+                <input type="text" class="form-control" name="blogComment" id="blogComment" placeholder="add comment"
+                    [(ngModel)]="userComment">
+                <button type="submit" class="btn btn-primary">submit</button>
+            </div>
+        </form>
 
 
-<div class="col-md-2"></div>
-<div class="col-md-8">
-<div *ngIf="post">
-<div class="header">
-    <h2>{{post.blogTitle}}</h2>
-</div>
-      
-<div>
-    <h5>created by : {{post.user.name}}</h5>
-    <h5>{{post.createdAtPost}}</h5>
-</div>
 
-<div style="height:410px; width: 100%">
-    <img  src="data:image/gif;base64,{{post.image}}" alt="image" style="text-align: center" style="width: 100%;height: 400px;">
-</div>
-<div>   
-    <p>{{post.body}}</p>
-</div>
-<!-- <button class="btn btn-warning nav-item nav-link-edit" [routerLink]="['/edit'],{ queryParams: { pId: 'post.pId' } }">Edit</button >    -->
-<div style="text-align: right">
-    <a routerLink="/edit/{{post.pId}}">Edit</a>&nbsp;&nbsp;&nbsp; 
-    <a routerLink="/delete/{{post.pId}}">Delete</a>  </div>
-  
+        <div *ngIf="post">
+            <div *ngFor="let cm of post.comments">
 
-<div class="footer">
-        <h2>thats all folks!!</h2>
+                <div class="container">
+                    <label for="Usercomment">By: {{cm.user.name}}</label>
+                    <input type="text" name="Usercomment" id="Usercomment" class="form-control" value="{{cm.comment}}"
+                        readonly>
+                    <h5>{{cm.createdAt}}</h5><br>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    
+    <div class="col-md-12">
+
+    <div class="footer">
+    <h2>thats all folks!!</h2>
     </div>
 </div>
-<div class="col-md-8">
+</section>

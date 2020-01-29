@@ -24,6 +24,4 @@ public interface IPostService {
 
 	public List<Post> getPostByCategory(Category c);
 
-	public Post updatePost(Post p);
-
 }

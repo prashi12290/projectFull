@@ -24,10 +24,7 @@ export class CreateComponent implements OnInit {
   categories:any;
 constructor(private route:ActivatedRoute,
 private router:Router,
-private service:DataService) {
-
-  this.getCategories();
- }
+private service:DataService) { }
 
 image:any;
 
@@ -65,4 +62,5 @@ getCategories(){
 
   })
 }
+
 }

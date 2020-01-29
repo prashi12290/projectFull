@@ -68,10 +68,4 @@ public class PostServiceImpl implements IPostService {
 		// TODO Auto-generated method stub
 		return dao.findByCategory(c);
 	}
-
-	@Override
-	public Post updatePost(Post p) {
-		
-		return dao.save(p);
-	}
 }
